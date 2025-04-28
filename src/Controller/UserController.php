@@ -12,7 +12,7 @@ final class UserController extends AbstractController
     public function index(): Response
     {
         return $this->render('index.html.twig', [
-            'title' => 'Inception',
+            'title' => 'Avengers',
         ]);
     }
 }
