@@ -1,8 +1,65 @@
-{% if title  %}
+{% extends 'base.html.twig' %}
 
-<h1>{{  title }} is a Movie</h1>
-{% else %}
+{% block title %}Movie Details{% endblock %}
 
-<h1>Movie not found</h1>
-{% endif %}
+{% block stylesheets %}
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: skyblue;
+        margin: 0;
+        padding: 0;
+        color: #333;
+    }
+    .container {
+        max-width: 800px;
+        margin: 40px auto;
+        background: white;
+        padding: 30px 40px;
+        border-radius: 10px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    }
+    header {
+        border-bottom: 2px solid #007BFF;
+        margin-bottom: 25px;
+        padding-bottom: 10px;
+    }
+    header h1 {
+        margin: 0;
+        font-size: 2.5rem;
+        color: #007BFF;
+    }
+    main {
+        font-size: 1.2rem;
+        line-height: 1.6;
+    }
+    .message {
+        padding: 20px;
+        background-color: #f8d7da;
+        color: #721c24;
+        border-radius: 8px;
+        border: 1px solid #f5c6cb;
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+{% endblock %}
 
+{% block body %}
+<div class="container">
+    <header>
+        {% if title %}
+            <h1>{{ title }} is a Movie</h1>
+        {% else %}
+            <h1>Movie not found</h1>
+        {% endif %}
+    </header>
+    <main>
+        {% if title %}
+            <p>Welcome to the details page for <strong>{{ title }}</strong>. Here you can add more information about the movie, such as description, release date, cast, and more.</p>
+        {% else %}
+            <div class="message">Sorry, we could not find the movie you are looking for.</div>
+        {% endif %}
+    </main>
+</div>
+{% endblock %}
